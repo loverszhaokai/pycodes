@@ -1,0 +1,101 @@
+/* 全局样式重置和基础设置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f7f8;
+  color: #333;
+}
+
+/* 容器和标题 */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.section-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #34495e;
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 5px;
+}
+
+/* 车辆卡片列表布局 */
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 单个车辆卡片 */
+.car-card {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  width: calc(50% - 10px); /* 两列布局，留出gap */
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.car-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.car-card__title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-right: 10px;
+}
+
+.car-card__price {
+  font-size: 1rem;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.car-card__desc {
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.car-card__link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #2980b9;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.car-card__link:hover {
+  background-color: #1b6f98;
+}
+
+/* 响应式：当屏幕宽度较窄时，卡片占据整行 */
+@media (max-width: 600px) {
+  .car-card {
+    width: 100%;
+  }
+}

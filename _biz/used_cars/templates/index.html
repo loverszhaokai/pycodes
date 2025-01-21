@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <h1>欢迎使用 Flask, {{ name }}!</h1>
+
+    <!-- 车辆列表标题 -->
+    <h2 class="section-title">车辆列表</h2>
+    <div class="card-list">
+      {% for car in cars %}
+      <!-- 单辆车的卡片 -->
+      <div class="car-card">
+        <div class="car-card__header">
+          <h3 class="car-card__title">{{ car.trim }} {{ car.sub_trim }} - {{ car.year }}</h3>
+          <div class="car-card__price">${{ car.price }} &nbsp;&nbsp; {{ car.badge }}</div>
+        </div>
+
+        <p class="car-card__desc">
+          {{ car.first_seen }}&nbsp;&nbsp;&nbsp;&nbsp; miles: {{car.miles}} &nbsp;&nbsp;&nbsp;&nbsp; city: {{car.dealer_city}} &nbsp;&nbsp;&nbsp;&nbsp;  {{car.dealer}}
+        </p>
+        <p class="car-card__desc">
+            vin: {{ car.vin }} &nbsp;&nbsp;&nbsp;&nbsp;name: {{ car.dealer_name }}
+        </p>
+        {% for price in car.price_history %}
+          <p class="car-card__desc">
+            {{price["date"]}} : {{price["listPrice"]}}
+          </p>
+        {% endfor %}
+        <p class="car-card__desc">
+          <img src="{{car.image}}">
+        </p>
+
+        <p>
+          <a class="car-card__link" href="{{ car.link }}" target="_blank">查看详情</a>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
